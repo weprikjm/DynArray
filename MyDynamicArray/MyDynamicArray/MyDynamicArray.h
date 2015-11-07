@@ -1,7 +1,6 @@
 
 
 
-
 template <class TYPE>
 class MyDynamicArray
 {
