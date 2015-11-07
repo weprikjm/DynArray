@@ -8,6 +8,20 @@ typedef unsigned int uint;
 
 #define DYNARRAYBLOCK 32
 
+template
+<class TYPE>
+void Swap(TYPE& a, TYPE& b)
+{
+	TYPE c = b;
+	b = a;
+	a = c;
+}
+
+
+
+
+
+
 
 #define NULL 0
 
