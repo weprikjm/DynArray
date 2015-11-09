@@ -1,15 +1,14 @@
-
-
+#ifndef __MYDYNAMICARRAY_H__ 
+#define __MYDYNAMICARRAY_H__ 
+#define DYNARRAYBLOCK 32
 
 template <class TYPE>
 class MyDynamicArray
 {
 public:
-	MyDynamicArray() : capacity(DYNARRAYBLOCK), sizeArray()
+	MyDynamicArray() : capacity(DYNARRAYBLOCK), sizeArray(0)
 	{
-		data = new TYPE[DYNARRAYBLOCK];
-		capacity = DYNARRAYBLOCK;
-		sizeArray = 0;
+		data = new TYPE[capacity];
 	}
 
 	MyDynamicArray(const MyDynamicArray<TYPE>& dynArray) : sizeArray(dynArray->sizeArray)
@@ -113,7 +112,7 @@ public:
 
 
 
-	TYPE At(const int index)const
+	TYPE At(const uint index)const
 	{
 		if (index < sizeArray)
 		{
@@ -176,9 +175,18 @@ public:
 
 	}
 
+	bool Empty()const
+	{
+		return strlen(data) > 0 ? false : true;
+	}
 
-
-
+	void Clear()
+	{
+		if (sizeArray > 0)
+		{
+			sizeArray = 0;
+		}
+	}
 
 
 
@@ -193,3 +201,4 @@ private:
 	uint capacity = DYNARRAYBLOCK;
 	uint sizeArray = 0;
 };
+#endif

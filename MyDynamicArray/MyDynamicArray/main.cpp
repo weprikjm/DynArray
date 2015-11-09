@@ -31,6 +31,7 @@ int main()
 	hello.ShowInt();
 	printf("\n\n");
 	bye.ShowInt();
+	printf("\n\n");
 	bye.Flip();
 	bye.ShowInt();
 	
