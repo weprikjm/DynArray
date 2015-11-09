@@ -19,9 +19,9 @@ public:
 		memcpy(data, dynArray->data, sizeArray * sizeof(TYPE));
 	}
 
-	MyDynamicArray(int size)
+	MyDynamicArray(int capacity)
 	{
-		capacity = DYNARRAYBLOCK + ((size / DYNARRAYBLOCK));
+		this->capacity = DYNARRAYBLOCK + ((capacity / DYNARRAYBLOCK));
 		sizeArray = 0;
 		data = new TYPE[capacity];
 		memset(data, 0, capacity);
@@ -61,8 +61,6 @@ public:
 		data[sizeArray++] = element;
 
 	}
-
-
 
 
 	bool Pop(TYPE& buffer)
@@ -112,7 +110,7 @@ public:
 
 
 
-	TYPE At(const uint index)const
+	TYPE At(uint index)const
 	{
 		if (index < sizeArray)
 		{
@@ -137,7 +135,7 @@ public:
 	
 	}
 
-	 TYPE Find(TYPE object)const
+	 TYPE* Find(TYPE object)const
 	 {
 		 TYPE found = 0;
 		 for (int index = 0; index < sizeArray; index++)
