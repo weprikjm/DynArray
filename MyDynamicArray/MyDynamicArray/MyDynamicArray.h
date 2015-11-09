@@ -1,5 +1,6 @@
 #ifndef __MYDYNAMICARRAY_H__ 
 #define __MYDYNAMICARRAY_H__ 
+
 #define DYNARRAYBLOCK 32
 
 template <class TYPE>
@@ -25,7 +26,6 @@ public:
 		sizeArray = 0;
 		data = new TYPE[capacity];
 		memset(data, 0, capacity);
-
 	}
 
 
@@ -37,7 +37,7 @@ public:
 			capacity += DYNARRAYBLOCK;
 			TYPE* tmp = new TYPE[capacity];
 		
-			memcpy(tmp,data,sizeArray);	
+			memcpy(tmp,data,sizeArray*sizeof(TYPE));	
 			delete[] data;
 			data = tmp;
 		}
@@ -144,11 +144,11 @@ public:
 			 {
 				 found = data[index];
 				 
-				 return found;
+				 return &found;
 			 }
 
 		 }
-		 return found;
+		 return &found;
 
 	 }
 
