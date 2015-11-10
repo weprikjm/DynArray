@@ -31,22 +31,17 @@ public:
 	//Operators
 	TYPE& operator[](uint index)
 	{
-		if (index < capacity)
-		{
-			sizeArray++;
+		if(index < sizeArray);
 			return data[index];
-		}
-
-			
 	}
 
 	const TYPE& operator[](uint index) const
 	{
-		if(index < sizeArray)
+		if(index < sizeArray);
 			return data[index];
 	}
 
-	const MyDynamicArray<TYPE>& operator=(const MyDynamicArray<TYPE>& dynArray)
+	const TYPE& operator=(const MyDynamicArray<TYPE>& dynArray)
 	{
 		if (dynArray.capacity > capacity)
 		{
@@ -55,10 +50,10 @@ public:
 		}
 		memcpy(data, dynArray.data, dynArray.sizeArray*sizeof(TYPE));
 
-		return (*this);
+		return data;
 	}
 
-	void PushBack(const TYPE* element)
+	void PushBack(TYPE* element)
 	{
 		if (sizeArray == capacity)
 		{
@@ -74,7 +69,7 @@ public:
 		
 	}
 
-	void PushBack(const TYPE element)//Simple data
+	void PushBack(TYPE element)//Simple data
 	{
 		if (sizeArray == capacity)
 		{
@@ -189,18 +184,6 @@ public:
 	
 	}
 
-	void ShrinkToFit()
-	{
-		if (sizeArray < capacity)
-		{
-			TYPE* tmp = new TYPE[sizeArray];
-			memcpy(tmp,data,sizeArray*sizeof(TYPE));
-		}
-	}
-
-
-
-
 	void Flip()
 	{
 		int size = sizeArray - 1;
@@ -224,6 +207,8 @@ public:
 			sizeArray = 0;
 		}
 	}
+
+
 
 	~MyDynamicArray()
 	{

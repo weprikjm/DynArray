@@ -22,12 +22,12 @@ int main()
 
 	int num = 10;
 	MyDynamicArray<int> bye(num);
-	bye[0] = 10;
+	
 	hello.Find(3);
 
-	//printf("%d\n",hello[0]);
+	printf("%d\n",hello[0]);
 	hello[0] = 1;
-	//printf("%d\n", hello[0]);
+	printf("%d\n", hello[0]);
 	hello = bye;
 	printf("%d\n", hello[0]);
 	hello.MultiplePop(&bye,num);
