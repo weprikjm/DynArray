@@ -33,7 +33,6 @@ public:
 	{
 		if (index < capacity)
 		{
-			sizeArray++;
 			return data[index];
 		}
 
@@ -191,10 +190,21 @@ public:
 
 	void ShrinkToFit()
 	{
-		if (sizeArray < capacity)
+		if (sizeArray < capacity && sizeArray != 0)
 		{
 			TYPE* tmp = new TYPE[sizeArray];
 			memcpy(tmp,data,sizeArray*sizeof(TYPE));
+			delete[] data;
+			capacity = sizeArray;
+			data = tmp;
+		}
+		else
+		{
+			TYPE* tmp = new TYPE[1];
+			capacity = 1;
+			sizeArray = 1;
+			delete[] data;
+			data = tmp;
 		}
 	}
 

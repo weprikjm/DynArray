@@ -26,12 +26,19 @@ int main()
 	hello.Find(3);
 
 	//printf("%d\n",hello[0]);
-	hello[0] = 1;
+	
 	//printf("%d\n", hello[0]);
-	hello = bye;
+	
 	printf("%d\n", hello[0]);
-	hello.MultiplePop(&bye,num);
-	//hello.ShowInt();
+	
+	hello.ShrinkToFit();
+	
+	//hello.MultiplePop(&bye,num);
+
+
+
+
+	hello.ShowInt();
 	//printf("\n\n");
 	//bye.ShowInt();
 	printf("\n\n");
