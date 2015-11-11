@@ -12,12 +12,12 @@ public:
 		data = new TYPE[capacity];
 	}
 
-	MyDynamicArray(const MyDynamicArray<TYPE>& dynArray) : sizeArray(dynArray->sizeArray)
+	MyDynamicArray(const MyDynamicArray<TYPE>& dynArray) : sizeArray(dynArray.sizeArray)
 	{	
-		capacity = MAX(DYNARRAYBLOCK, dynArray->capacity);
+		capacity = MAX(DYNARRAYBLOCK, dynArray.capacity);
 		data = new TYPE[capacity];
 		memset(data, 0, capacity);
-		memcpy(data, dynArray->data, sizeArray * sizeof(TYPE));
+		memcpy(data, dynArray.data, sizeArray * sizeof(TYPE));
 	}
 
 	MyDynamicArray(int capacity)
@@ -35,8 +35,6 @@ public:
 		{
 			return data[index];
 		}
-
-			
 	}
 
 	const TYPE& operator[](uint index) const
