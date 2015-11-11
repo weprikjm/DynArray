@@ -217,7 +217,6 @@ public:
 		{
 			Swap(this->data[i], this->data[size - i]);
 		}
-
 	}
 
 	bool Empty()const
