@@ -35,13 +35,26 @@ int main()
 	
 	//hello.MultiplePop(&bye,num);
 
+	MyDynamicArray<int> bubble;
 
 
 
-	hello.ShowInt();
+	for (int i = 0; i < 100; i++)
+	{
+		bubble.PushBack(rand());
+	}
+
+
+	int repetitions = bubble.BubbleSort();
+
+
+	bubble.PrintArray();
+
+
+	//hello.ShowInt();
 	//printf("\n\n");
 	//bye.ShowInt();
-	printf("\n\n");
+	printf("\n\n%d", repetitions);
 	//bye.Flip();
 	//bye.ShowInt();
 	

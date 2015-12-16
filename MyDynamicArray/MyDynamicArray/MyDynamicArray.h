@@ -16,7 +16,7 @@ public:
 	{	
 		capacity = MAX(DYNARRAYBLOCK, dynArray.capacity);
 		data = new TYPE[capacity];
-		memset(data, 0, capacity);
+		memset(data, 0, capacity * sizeof(TYPE));
 		memcpy(data, dynArray.data, sizeArray * sizeof(TYPE));
 	}
 
@@ -176,16 +176,6 @@ public:
 
 	 }
 
-
-	void ShowInt()const
-	{
-		for (int index = 0; index < sizeArray; index++)
-		{
-			printf("%d",data[index]);
-		}
-	
-	}
-
 	void ShrinkToFit()
 	{
 		if (sizeArray < capacity && sizeArray != 0)
@@ -219,6 +209,83 @@ public:
 		}
 	}
 
+	void PrintArray()
+	{
+		if (sizeArray == 0)
+			printf("The array is empty");
+
+		for (int i = 0; i < sizeArray; i++)
+		{
+			printf("%d ", data[i]);//We manually change % because i don't know how to make the program detect its type (it doesn't really matter cause its for debugging)
+		}
+	}
+
+
+	double BubbleSortOptimized()
+	{
+
+
+		bool swapped = true;
+		int counter = 0;
+		int num = sizeArray;
+
+
+		while (swapped)
+		{
+			swapped = false;
+
+
+			for (int i = 0; i < num - 1; i++)
+			{
+				counter++;
+				if (data[i] > data[(i + 1)])
+				{
+					//int m = i;
+
+					Swap(data[i], data[(i + 1)]);
+
+					swapped = true;
+
+				}
+
+			}
+			//--num;
+
+		}
+		return counter;
+
+	}
+
+
+
+	double BubbleSort()
+	{
+
+		bool swapped = true;
+		int counter = 0;
+
+		while (swapped)
+		{
+			swapped = false;
+
+			for (int i = 0; i < sizeArray - 1; i++)
+			{
+				counter++;
+				if (data[i] > data[(i + 1)])
+				{
+					Swap(data[i], data[(i + 1)]);
+					swapped = true;
+				}
+			}
+
+		}
+		return counter;
+
+	}
+
+
+
+
 	bool Empty()const
 	{
 		return strlen(data) > 0 ? false : true;
@@ -237,6 +304,7 @@ public:
 		if (data != NULL)
 			delete[] data; 
 	}
+
 
 private:
 	TYPE* data = NULL;
