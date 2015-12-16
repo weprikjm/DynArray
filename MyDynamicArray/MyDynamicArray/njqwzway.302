@@ -40,7 +40,7 @@ int main()
 
 	int	random;
 	int lowest = 0;
-	int highest = 1000;
+	int highest = 100;
 	bubble.Clear();
 	
 	/*
@@ -53,7 +53,7 @@ int main()
 	*/
 	
 	
-	for (int i = 0; i < 10000; i++)
+	for (int i = 0; i < 1000; i++)
 	{
 		random = lowest + (rand() % (highest - lowest));
 		bubble.PushBack(random);
@@ -61,7 +61,7 @@ int main()
 	
 	//bubble.PrintArray();
 
-	double repetitions = bubble.BubbleSortOptimized();
+	int repetitions = bubble.BubbleSortOptimized();
 
 	printf("\n\n\n\n\n");
 	bubble.PrintArray();
